@@ -1,0 +1,54 @@
+{
+  "tool": "Excel",
+  "description": "Excel pratik otomasyon senaryolari (Power Query / VBA / Copilot).",
+  "scenarios": [
+    {
+      "id": "excel-monthly-ops-report",
+      "title": "Aylik operasyon raporu otomasyonu",
+      "request": "Her ay ayni yapidaki operasyon raporunu manuel birlestirme yapmadan uret.",
+      "setup": "Ham veri CSV/klasor halinde geliyor; sunum katmani ayri bir sayfada.",
+      "expected": "Power Query ile klasorden veri al -> donustur; tek makro RefreshAll + PDF export yapsin. Ham/hesap/gorunum katmanlari ayri olsun.",
+      "source": "excels.uk, technoexcel"
+    },
+    {
+      "id": "excel-combine-files",
+      "title": "Coklu dosyayi tek tikla birlestirme",
+      "request": "12 bolgesel dosyayi tek master tabloya birlestir.",
+      "setup": "Ayni semali .xlsx dosyalari bir klasorde; sutunlar ayni.",
+      "expected": "Power Query 'From Folder -> Combine Files' ile ice aktar; yeni dosya eklenince Refresh yeterli. VBA gerekmez.",
+      "source": "codeandcrumbs"
+    },
+    {
+      "id": "excel-weekly-kpi-copilot",
+      "title": "Haftalik KPI raporu + AI ozet",
+      "request": "Haftalik KPI'lari hesapla ve ust yonetim icin 3 maddelik ozet yaz.",
+      "setup": "RawData / WeeklyReport / Summary / Settings sayfalari ayri; KPI'lar Excel'de.",
+      "expected": "Power Query veriyi hazirlar, VBA pivot+PDF'i basar, Copilot 'ana trendler, anomaliler, en iyi bolgeler' ozetini uretir.",
+      "source": "Hakky Handbook"
+    },
+    {
+      "id": "excel-conditional-merge",
+      "title": "Kosullu birlestirme (en guncel kayit)",
+      "request": "Musteri ID bazinda en son islem tarihli kaydi tut.",
+      "setup": "Karisik klasor; basit birlestirme yetmez, is kurali gerekli.",
+      "expected": "Power Query yetersizse kisa, yorumlanmis VBA dongusu (XLOOKUP mantigi) calistir; hata yonetimi olsun.",
+      "source": "codeandcrumbs"
+    },
+    {
+      "id": "excel-pivot-lock",
+      "title": "Pivot otomatik yenileme + koruma",
+      "request": "Pivot alanlari her hafta elle surukleniyor.",
+      "setup": "Pivot alanlari yeniden duzenleniyor.",
+      "expected": "Power Query ciktisi kaynak olunca pivot duzeni kilitlensin, auto-sort kapansin; yenileme 1 tik olsun.",
+      "source": "technoexcel"
+    },
+    {
+      "id": "excel-validation-gate",
+      "title": "Veri dogrulama (kor otomasyon engeli)",
+      "request": "Otomatik raporu dagitmadan once hata kontrolu yap.",
+      "setup": "Kaynak dosya tasininabilir/yeniden adlandirilabilir.",
+      "expected": "Kontrol sayfasinda satir sayisi/tarih/varyans esikleri; anormal degisimde uyari, otomatik gonderim yok.",
+      "source": "excels.uk"
+    }
+  ]
+}

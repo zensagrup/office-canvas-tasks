@@ -1,0 +1,46 @@
+{
+  "tool": "Word",
+  "description": "Microsoft Word pratik otomasyon senaryolari (Mail Merge).",
+  "scenarios": [
+    {
+      "id": "word-bulk-letters",
+      "title": "Toplu kisisellestirilmis mektup",
+      "request": "500 musteriye ayni isim/adresli ayni yapida mektup gonder.",
+      "setup": "Excel'de alici listesi (basliklar temiz, bosluk yok).",
+      "expected": "Mailings -> Start Mail Merge -> Letters -> Select Recipients -> Insert Merge Field. 5 kayitla test, sonra toplu.",
+      "source": "Medium/unidoclib"
+    },
+    {
+      "id": "word-certificates",
+      "title": "Sertifika toplu uretimi",
+      "request": "500 katilimciya ad/soyad/tarihli sertifika uret.",
+      "setup": "Katilimci listesi hazir; tek sablon.",
+      "expected": "Tek sablon + merge field'lar; her biri ayri sayfa. Manuel duzenleme yok.",
+      "source": "mailmergic"
+    },
+    {
+      "id": "word-labels-envelopes",
+      "title": "Etiket ve zarf birlestirme",
+      "request": "Adres etiketlerini/yarflari toplu bastir.",
+      "setup": "Outlook/Excel rehberi.",
+      "expected": "Envelopes/Labels tipi sec; hizali cikti.",
+      "source": "completeera"
+    },
+    {
+      "id": "word-email-merge",
+      "title": "E-posta birlestirme (Outlook)",
+      "request": "Kisisellestirilmis toplu e-posta + ek gonder.",
+      "setup": "Outlook yuklu; alicilar Excel/Outlook.",
+      "expected": "Email Messages tipi; acilis/tiklama takibi; BCC secenegi.",
+      "source": "completeera"
+    },
+    {
+      "id": "word-contract-pdf",
+      "title": "Sozlesme / teklif uretimi (PDF'e)",
+      "request": "Excel satirlarini Word sozlesme sablonuna dok, ayri PDF'ler cikar.",
+      "setup": "100 satirlik Excel + Word sablonu ({FirstName} tipi yer tutucular).",
+      "expected": "Ayni dosyalar (tek dev dosya degil); onizleme -> Generate All -> ZIP/e-posta.",
+      "source": "activemerge"
+    }
+  ]
+}

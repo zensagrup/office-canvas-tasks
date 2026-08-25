@@ -1,0 +1,62 @@
+{
+  "tool": "Canvas",
+  "description": "Canvas pratik gorev senaryolari (Canva / Microsoft 365 Copilot Pages / Microsoft Whiteboard).",
+  "scenarios": [
+    {
+      "id": "canva-onbrand-post",
+      "title": "Marka uyumlu sosyal medya postu",
+      "request": "'Ise alim' Instagram postu uret, markaya uygun olsun.",
+      "setup": "Brand Kit + Brand Template tanimli.",
+      "expected": "Canva AI -> Apply Brand -> sablon; 'daha vurucu baslik' gibi tekli prompt'larla ince ayar; insan son kontrolu.",
+      "source": "canva.com/design-school"
+    },
+    {
+      "id": "canva-ai-caption-visual",
+      "title": "AI sosyal medya yazisi + gorsel",
+      "request": "LinkedIn/FB/TikTok icin ton ayarli caption uret, gorsele donustur.",
+      "setup": "Hedef kitle + amac (tiklama/uye) verildi.",
+      "expected": "AI Social Post Generator -> hashtag/emoji ekle -> AI gorsel -> dogrudan yayinla veya Content Planner ile zamanla.",
+      "source": "canva.com/features"
+    },
+    {
+      "id": "canva-magic-switch",
+      "title": "Tek tasarimi cok platforma boyutla",
+      "request": "Bir LinkedIn carousel'ini Pinterest pin'e uyarla.",
+      "setup": "Orijinal tasarim hazir.",
+      "expected": "Magic Switch / Magic Resize ile 1 tik boyut donusumu; marka dili korunsun.",
+      "source": "brandghost, canva.com/solutions"
+    },
+    {
+      "id": "canva-template-library",
+      "title": "Sablon kutuphanesi (5-10 kalip)",
+      "request": "Tekrarli icerikte her seferinde sifirdan tasarlama.",
+      "setup": "Quote card / carousel / thumbnail kalipalari gerekli.",
+      "expected": "5-10 sablon klasoru; cogalt-yeniden kullan; Pro'da Brand Template kilidi.",
+      "source": "brandghost"
+    },
+    {
+      "id": "m365-copilot-pages",
+      "title": "Copilot yanitini duzenlenebilir canvas'a cevir",
+      "request": "Copilot'un urettigi ozeti kalici, paylasilabilir icerige donustur.",
+      "setup": "Microsoft 365 Copilot lisansi; Copilot chat acik.",
+      "expected": "Copilot Pages ile yanit yan yana duzenlenebilir sayfaya donusur; ekiple gercek zamanli paylas/isbirligi.",
+      "source": "support.microsoft.com Copilot Pages"
+    },
+    {
+      "id": "whiteboard-brainstorm",
+      "title": "Beyin firtinasi / sprint planlama",
+      "request": "Uzak ekipte gorsel planlama oturumu yap.",
+      "setup": "Teams toplantisi veya bagimsiz Whiteboard.",
+      "expected": "Sticky note / sablonlar; Share link ile dis katilimci dahil gercek zamanli; PNG/disa aktarim.",
+      "source": "support.microsoft.com/whiteboard"
+    },
+    {
+      "id": "whiteboard-swot-copilot",
+      "title": "SWOT / problem cozme tahtasi + Copilot",
+      "request": "Pazarlama sync'inde SWOT'u gorselleştir, gorevleri cikar.",
+      "setup": "Whiteboard Teams icinde acik; Copilot erisilebilir.",
+      "expected": "Hazir SWOT sablonu; Copilot gorev ozeti (SEO odağı vb.) uretir; Loop bileseniyle senkron.",
+      "source": "microsoft.com/whiteboard"
+    }
+  ]
+}
