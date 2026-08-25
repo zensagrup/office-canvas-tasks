@@ -1,0 +1,12 @@
+[submodule "apps/excel/xlwings"]
+	path = apps/excel/xlwings
+	url = https://github.com/xlwings/xlwings.git
+[submodule "apps/excel/excel-automation-toolkit"]
+	path = apps/excel/excel-automation-toolkit
+	url = https://github.com/monroesolisdata/excel-automation-toolkit.git
+[submodule "apps/word/docx-mailmerge"]
+	path = apps/word/docx-mailmerge
+	url = https://github.com/Bouke/docx-mailmerge.git
+[submodule "apps/canvas/canva-connect-api-starter-kit"]
+	path = apps/canvas/canva-connect-api-starter-kit
+	url = https://github.com/canva-sdks/canva-connect-api-starter-kit.git
