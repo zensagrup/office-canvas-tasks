@@ -32,6 +32,45 @@
   #msg { padding: 8px 12px; border-radius: 6px; margin-bottom: 10px; display: none; }
   #msg.ok { background: #d4edda; color: #155724; }
   #msg.err { background: #f8d7da; color: #721c24; }
+  .toolbar { display: flex; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
+  #msg { padding: 8px 12px; border-radius: 6px; margin-bottom: 10px; display: none; }
+  #msg.ok { background: #d4edda; color: #155724; }
+  #msg.err { background: #f8d7da; color: #721c24; }
+  /* Mobil kart görünümü için gizlenecek sütun başlıkları */
+  .card-row { display: none; }
+
+  /* ===== MOBİL (max-width: 768px) ===== */
+  @media (max-width: 768px) {
+    header { padding: 10px 14px; }
+    header h1 { font-size: 16px; }
+    .container { padding: 0 10px; margin: 12px auto; }
+    .card { padding: 14px; }
+    .grid { grid-template-columns: 1fr; }   /* form tek sütun */
+    .toolbar .btn { flex: 1; }
+    .stat { flex: 1 1 45%; min-width: 0; padding: 10px 12px; }
+    .stat .v { font-size: 16px; }
+
+    /* Tabloyu gizle, kart görünümüne geç */
+    #tbl thead { display: none; }
+    #tbl, #tbl tbody, #tbl tr, #tbl td { display: block; width: 100%; }
+    #tbl tr {
+      background: #fff; border: 1px solid #e2e8f0; border-radius: 10px;
+      margin-bottom: 12px; padding: 8px 10px; box-shadow: 0 1px 3px rgba(0,0,0,.06);
+    }
+    #tbl td {
+      border: none; padding: 5px 0; display: flex;
+      justify-content: space-between; gap: 12px; font-size: 13px;
+      border-bottom: 1px dashed #f0f0f0;
+    }
+    #tbl td:last-child { border-bottom: none; justify-content: flex-start; gap: 6px; }
+    /* hücre etiketi: data-label özniteliği JS'te eklenir */
+    #tbl td::before {
+      content: attr(data-label); font-weight: 600; color: #1F4E78;
+      flex-shrink: 0; min-width: 38%;
+    }
+    #tbl td:last-child::before { content: "İşlem:"; }
+    .btn.small { padding: 8px 14px; font-size: 14px; }
+  }
 </style>
 </head>
 <body>
@@ -119,13 +158,22 @@ async function yukle(){
   let tVer=0,tAlin=0,tKalPar=0,tKalOd=0;
   d.forEach(s=>{
     const tr=document.createElement('tr');
-    tr.innerHTML=`<td>${s.id}</td><td>${s.is_son_durumu}</td><td>${s.tarih||''}</td><td>${s.firma||''}</td>
-      <td>${s.urun_adi||''}</td><td>${s.renk||''}</td><td>${s.adet||0}</td>
-      <td>${fmt(s.birim_fiyat)}</td><td>${fmt(s.cantafi_fiyat)}</td><td>${fmt(s.verilen_fiyat)}</td>
-      <td class="${s.kalan_para<0?'neg':''}">${fmt(s.kalan_para)}</td>
-      <td>${fmt(s.alinan_odeme)}</td><td class="${s.kalan_odeme<0?'neg':''}">${fmt(s.kalan_odeme)}</td>
-      <td><button class="btn small edit" onclick="duzenle(${s.id})">✏</button>
-          <button class="btn small del" onclick="sil(${s.id})">🗑</button></td>`;
+    tr.innerHTML=`
+      <td data-label="ID">${s.id}</td>
+      <td data-label="Durum">${s.is_son_durumu}</td>
+      <td data-label="Tarih">${s.tarih||''}</td>
+      <td data-label="Firma">${s.firma||''}</td>
+      <td data-label="Ürün">${s.urun_adi||''}</td>
+      <td data-label="Renk">${s.renk||''}</td>
+      <td data-label="Adet">${s.adet||0}</td>
+      <td data-label="Birim ₺">${fmt(s.birim_fiyat)}</td>
+      <td data-label="Çanta ₺">${fmt(s.cantafi_fiyat)}</td>
+      <td data-label="Verilen ₺">${fmt(s.verilen_fiyat)}</td>
+      <td data-label="Kalan Para ₺" class="${s.kalan_para<0?'neg':''}">${fmt(s.kalan_para)}</td>
+      <td data-label="Alınan ₺">${fmt(s.alinan_odeme)}</td>
+      <td data-label="Kalan Ödeme ₺" class="${s.kalan_odeme<0?'neg':''}">${fmt(s.kalan_odeme)}</td>
+      <td><button class="btn small edit" onclick="duzenle(${s.id})">✏ Düzenle</button>
+          <button class="btn small del" onclick="sil(${s.id})">🗑 Sil</button></td>`;
     tb.appendChild(tr);
     tVer+=(+s.verilen_fiyat||0); tAlin+=(+s.alinan_odeme||0);
     tKalPar+=(+s.kalan_para||0); tKalOd+=(+s.kalan_odeme||0);
