@@ -109,7 +109,12 @@ function veri(){
 }
 async function yukle(){
   const r = await fetch('/api/siparisler'); const d = await r.json();
-  d.reverse();  // en yeni (büyük ID) uste, eski altta
+  // Tarihe gore sirala: eski alta, yeni uste (DD.MM.YYYY -> YYYY-MM-DD)
+  d.sort((a,b)=>{
+    const pa=(a.tarih||'').split('.').reverse().join('-');
+    const pb=(b.tarih||'').split('.').reverse().join('-');
+    return pa < pb ? 1 : pa > pb ? -1 : 0;  // desc: yeni uste
+  });
   const tb = document.querySelector('#tbl tbody'); tb.innerHTML='';
   let tVer=0,tAlin=0,tKalPar=0,tKalOd=0;
   d.forEach(s=>{
