@@ -109,7 +109,7 @@ function veri(){
 }
 async function yukle(){
   const r = await fetch('/api/siparisler'); const d = await r.json();
-  const tb = document.querySelector('#tbl tbody'); tb.innerHTML='";
+  const tb = document.querySelector('#tbl tbody'); tb.innerHTML='';
   let tVer=0,tAlin=0,tKalPar=0,tKalOd=0;
   d.forEach(s=>{
     const tr=document.createElement('tr');
