@@ -70,6 +70,9 @@
     }
     #tbl td:last-child::before { content: "İşlem:"; }
     .btn.small { padding: 8px 14px; font-size: 14px; }
+    /* Mobilde Düzenle/Sil butonları ana butonlarla ayni stil */
+    #tbl td:last-child { flex-direction: column; align-items: stretch; gap: 6px; }
+    #tbl td:last-child .btn { width: 100%; padding: 10px; font-size: 14px; margin: 0; }
   }
 </style>
 </head>
@@ -172,8 +175,8 @@ async function yukle(){
       <td data-label="Kalan Para ₺" class="${s.kalan_para<0?'neg':''}">${fmt(s.kalan_para)}</td>
       <td data-label="Alınan ₺">${fmt(s.alinan_odeme)}</td>
       <td data-label="Kalan Ödeme ₺" class="${s.kalan_odeme<0?'neg':''}">${fmt(s.kalan_odeme)}</td>
-      <td><button class="btn small edit" onclick="duzenle(${s.id})">✏ Düzenle</button>
-          <button class="btn small del" onclick="sil(${s.id})">🗑 Sil</button></td>`;
+      <td><button class="btn edit" onclick="duzenle(${s.id})">✏ Düzenle</button>
+          <button class="btn del" onclick="sil(${s.id})">🗑 Sil</button></td>`;
     tb.appendChild(tr);
     tVer+=(+s.verilen_fiyat||0); tAlin+=(+s.alinan_odeme||0);
     tKalPar+=(+s.kalan_para||0); tKalOd+=(+s.kalan_odeme||0);
